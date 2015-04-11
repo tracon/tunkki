@@ -43,12 +43,12 @@ module.exports = (robot) ->
         team = Payload.team
         robot.messageRoom channel, "#{member.login} was #{action} from/to team #{team.name}"
       when "push"
-        ref = Payload.ref
+        ref = Payload.ref.split "/"
         size = Payload.commits.length
         commits = Payload.commits
         repo = Payload.repository
         compare = Payload.compare
-        robot.messageRoom channel, "#{repo.name}: #{size} commits pushed. Commit messages:"
+        robot.messageRoom channel, "#{repo.name}: #{size} commits pushed to #{ref[2]}. Commit messages:"
         robot.messageRoom channel, c.message for c in commits
         robot.messageRoom channel, "Diff link: #{compare}"
       when "repository"
