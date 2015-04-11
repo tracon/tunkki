@@ -50,7 +50,7 @@ module.exports = (robot) ->
         compare = Payload.compare
         message = ""
         message += "'#{c.message}', " for c in commits
-        robot.messageRoom channel, "#{repo.name}: #{size} commits pushed to #{ref[2]}. Commit messages: #{message} Link: #{compare}"
+        robot.messageRoom channel, "#{repo.name}: #{size} commits pushed to #{ref[2]}. Commit messages: #{message}Link: #{compare}"
       when "repository"
         repo = Payload.repository
         robot.messageRoom channel, "New repository created: #{repo.name}"
