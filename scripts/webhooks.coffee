@@ -50,9 +50,9 @@ module.exports = (robot) ->
         compare = Payload.compare
         if commits.length > 1
           latest = commits.length - 1
-          robot.messageRoom channel, "#{repo.name}: #{size} commits pushed to #{ref[2]}. Latest commit message: #{commits[latest].message} Diff: #{compare}"
+          robot.messageRoom channel, "#{repo.name}: #{size} commits pushed to #{ref[2]}. Latest commit message: '#{commits[latest].message}' Diff: #{compare}"
         else
-          robot.messageRoom channel, "#{repo.name}: #{size} commit pushed to #{ref[2]}. Commit message: #{commits[0].message} Diff: #{compare}"
+          robot.messageRoom channel, "#{repo.name}: #{size} commit pushed to #{ref[2]}. Commit message: '#{commits[0].message}' Diff: #{compare}"
       when "repository"
         repo = Payload.repository
         robot.messageRoom channel, "New repository created: #{repo.name}"
